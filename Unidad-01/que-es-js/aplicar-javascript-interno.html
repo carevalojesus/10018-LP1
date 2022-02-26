@@ -2,7 +2,22 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Ejemplo de aplicar JavaScript</title>
+    <title>Ejemplo de aplicar JavaScript internamente</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          function crearParrafo() {
+            const parrafo = document.createElement('p');
+            parrafo.textContent = 'Haz hecho clic!!!';
+            document.body.appendChild(parrafo);
+          }
+  
+          const botones = document.querySelectorAll('button');
+  
+          for (const boton of botones) {
+            boton.addEventListener('click', crearParrafo);
+          }
+        });
+      </script>
   </head>
   <body>
     <button>Hazme clic</button>
