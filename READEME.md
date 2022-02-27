@@ -1,1 +1,0 @@
-# 10018 Lenguaje de Programación I
