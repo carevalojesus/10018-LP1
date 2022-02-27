@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Juego Adivina Número</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .resultadoFinal {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Juego adivina número</h1>
+
+    <p>Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su conjetura fue demasiado alta o demasiado baja.</p>
+
+    <div class="formulario">
+      <label for="conjeturaCampo">Ingrese conjetura: </label>
+      <input type="text" id="conjeturaCampo" class="conjeturaCampo">
+      <input type="submit" value="Enviar conjetura" class="conjeturaEnviar">
+    </div>
+
+    <div class="resultadoParrafo">
+      <p class="conjeturas"></p>
+      <p class="resultadoFinal"></p>
+      <p class="bajoOalto"></p>
+    </div>
+
+    <script>
+
+      // Su JavaScript va aquí
+
+    </script>
+  </body>
+</html>
