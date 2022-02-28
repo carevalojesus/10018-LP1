@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Error Juego Adivina Número</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .resultadoFinal {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Juego adivina número</h1>
+
+    <p>
+      Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede
+      adivinarlo en 10 turnos o menos. Le diremos si tu número fue demasiado
+      alta o demasiado baja.
+    </p>
+
+    <div class="formulario">
+      <label for="respuestaCampo">Adivina el número: </label>
+      <input type="text" id="respuestaCampo" class="respuestaCampo" />
+      <input type="submit" value="Enviar respuesta" class="respuestaEnviar" />
+    </div>
+
+    <div class="resultadoParrafo">
+      <p class="respuestas"></p>
+      <p class="resultadoFinal"></p>
+      <p class="bajoOalto"></p>
+    </div>
+
+    <script>
+      let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+      const respuestas = document.querySelector(".respuestas");
+      const resultadoFinal = document.querySelector(".resultadoFinal");
+      const bajoOalto = document.querySelector(".bajoOalto");
+      const respuestaEnviar = document.querySelector(".respuestaEnviar");
+      const respuestaCampo = document.querySelector(".respuestaCampo");
+      let intentosContador = 1;
+      let botonReiniciar;
+
+      function checkearRespuesta() {
+        let usuarioRespuesta = Number(respuestaCampo.value);
+        if (intentosContador === 1) {
+          respuestas.textContent = "Intentos anteriores: ";
+        }
+        respuestas.textContent += usuarioRespuesta + " ";
+
+        if (usuarioRespuesta === numeroAleatorio) {
+          resultadoFinal.textContent = "¡Felicidades! ¡Lo adivinaste!";
+          resultadoFinal.style.backgroundColor = "green";
+          bajoOalto.textContent = "";
+          juegoTerminado();
+        } else if (intentosContador === 10) {
+          resultadoFinal.textContent = "!!!Fin del juego!!!";
+          juegoTerminado();
+        } else {
+          resultadoFinal.textContent = "¡Incorrecto!";
+          resultadoFinal.style.backgroundColor = "red";
+          if (usuarioRespuesta < numeroAleatorio) {
+            bajoOalto.textContent = "¡El número es muy bajo!";
+          } else if (usuarioRespuesta > numeroAleatorio) {
+            bajoOalto.textContent = "¡El número es muy grande!";
+          }
+        }
+
+        intentosContador++;
+        respuestaCampo.value = "";
+        respuestaCampo.focus();
+      }
+
+      respuestaEnviar.addeventListener("click", checkearRespuesta);
+
+      function juegoTerminado() {
+        respuestaCampo.disabled = true;
+        respuestaEnviar.disabled = true;
+        botonReiniciar = document.createElement("button");
+        botonReiniciar.textContent = "Iniciar nuevo juego";
+        document.body.append(botonReiniciar);
+        botonReiniciar.addEventListener("click", reiniciarJuego);
+      }
+
+      function reiniciarJuego() {
+        intentosContador = 1;
+
+        const resetParrafos = document.querySelectorAll(".resultadoParrafo p");
+        for (let i = 0; i < resetParrafos.length; i++) {
+            resetParrafos [i].textContent = "";
+        }
+
+        botonReiniciar.parentNode.removeChild(botonReiniciar);
+
+        respuestaCampo.disabled = false;
+        respuestaEnviar.disabled = false;
+        respuestaCampo.value = "";
+        respuestaCampo.focus();
+
+        resultadoFinal.style.backgroundColor = "white";
+
+        numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+      }
+    </script>
+  </body>
+</html>
