@@ -28,24 +28,11 @@
 
     <p>
       Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede
-<<<<<<< HEAD
-      adivinarlo en 10 turnos o menos. Le diremos si su conjetura fue demasiado
-=======
       adivinarlo en 10 turnos o menos. Le diremos si tu número fue demasiado
->>>>>>> 33565482e5ba1bdf5618aff1e62a02c7d1b15367
       alta o demasiado baja.
     </p>
 
     <div class="formulario">
-<<<<<<< HEAD
-      <label for="conjeturaCampo">Adivina el número: </label>
-      <input type="text" id="conjeturaCampo" class="conjeturaCampo" />
-      <input type="submit" value="Enviar respuesta" class="conjeturaEnviar" />
-    </div>
-
-    <div class="resultadoParrafo">
-      <p class="conjeturas"></p>
-=======
       <label for="respuestaCampo">Adivina el número: </label>
       <input type="text" id="respuestaCampo" class="respuestaCampo" />
       <input type="submit" value="Enviar respuesta" class="respuestaEnviar" />
@@ -53,25 +40,12 @@
 
     <div class="resultadoParrafo">
       <p class="respuestas"></p>
->>>>>>> 33565482e5ba1bdf5618aff1e62a02c7d1b15367
       <p class="resultadoFinal"></p>
       <p class="bajoOalto"></p>
     </div>
 
     <script>
       let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-<<<<<<< HEAD
-
-      const conjeturas = document.querySelector(".conjeturas");
-      const resultadoFinal = document.querySelector(".resultadoFinal");
-      const bajoOalto = document.querySelector(".bajoOalto");
-
-      const conjeturasEnviar = document.querySelector(".conjeturasEnviar");
-      const conjeturaCampo = document.querySelector(".conjeturaCampo");
-
-      let conjeturaContador = 1;
-      let botonResetear;
-=======
       const respuestas = document.querySelector(".respuestas");
       const resultadoFinal = document.querySelector(".resultadoFinal");
       const bajoOalto = document.querySelector(".bajoOalto");
@@ -140,7 +114,6 @@
 
         numeroAleatorio = Math.floor(Math.random() * 100) + 1;
       }
->>>>>>> 33565482e5ba1bdf5618aff1e62a02c7d1b15367
     </script>
   </body>
 </html>
