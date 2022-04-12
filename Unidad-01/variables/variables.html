@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacenando datos en variables</title>
+</head>
+<body>
+
+    <input type="text" id=name placeholder="Ingresa tu nombre">
+    <button id="send">Enviar</button>
+
+    <script>
+
+        let name = document.getElementById('name');
+        let send = document.getElementById('send');
+        var nombre
+        let apellido
+        const fechaNacimiento = 1992 // inicializar y asignar una valor a una variable
+
+        
+        nombre = "christian" //string
+        apellido = 'Arévalo' //string
+
+        typeof(nombre) //string
+        console.log(typeof(nombre)) //   string
+        console.log(typeof(fechaNacimiento)) // number
+
+        let mayorDeEdad = true //boolean true o false
+        let array = [123, "texto", true, [1,2,3]] //array
+        let objeto = {
+            nombre: "christian",
+            apellido: "Arévalo",
+            edad: 23
+        } //objeto
+
+        function saludar() {
+            return alert("Hola " + name.value)
+        }
+
+        send.addEventListener('click', saludar)
+
+        let asignaturas = ["Matemáticas", "Lengua", "Física", "Química"]
+        console.log(asignaturas.length) //4
+
+        asignaturas.forEach(asignatura => {
+            console.log(asignatura)
+        })
+        
+        for (let i = 0; i < asignaturas.length; i++) {
+            console.log(asignaturas[i])
+        }
+
+        let suma = a + b
+        console.log(suma)
+
+        var a = 12
+        var b = 3
+
+        let prueba = "hola "
+        prueba = "soy una prueba"
+
+        var saludo = "hola"
+        var saludo = "chau"
+
+    </script>
+</body>
+</html>
